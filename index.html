@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Africa Corridor Playbook — Skydo GTM Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Barlow+Condensed:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+ 
+<style>
+:root {
+  --green: #00C853;
+  --green-light: #E8FAF0;
+  --green-mid: #00A843;
+  --blue: #2979FF;
+  --blue-light: #EBF1FF;
+  --blue-mid: #1565C0;
+  --white: #FFFFFF;
+  --bg: #F8F9FA;
+  --bg2: #F0F2F5;
+  --ink: #0D1117;
+  --ink2: #2D3748;
+  --ink3: #5A6478;
+  --ink4: #8A95A5;
+  --border: #E2E8F0;
+  --border2: #CBD5E0;
+  --red: #FF3D57;
+  --amber: #FF9800;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.07);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.10);
+  --shadow-green: 0 8px 32px rgba(0,200,83,0.18);
+}
+ 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+ 
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
+ 
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.93); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.05rem; letter-spacing: 0.02em;
+}
+.nav-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 8px var(--green);
+  animation: pdot 2s infinite;
+}
+@keyframes pdot { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.5);opacity:.6;} }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { font-size: .75rem; font-weight: 600; text-decoration: none; color: var(--ink3); letter-spacing: .07em; text-transform: uppercase; transition: color .2s; }
+.nav-links a:hover { color: var(--green); }
+.nav-badge { background: var(--green); color: #fff; font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: .04em; }
+@media(max-width:768px){ .nav-links{display:none;} }
+ 
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(28px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;} .d5{transition-delay:.5s;}
+ 
+/* HERO */
+.hero {
+  min-height: 100vh; padding: 100px 2rem 70px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white); position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(0,200,83,.05) 1px,transparent 1px), linear-gradient(90deg,rgba(0,200,83,.05) 1px,transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 50%,black 30%,transparent 100%);
+}
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+.orb1 { width: 550px; height: 550px; background: rgba(0,200,83,.09); top: -150px; right: -100px; }
+.orb2 { width: 420px; height: 420px; background: rgba(41,121,255,.07); bottom: -100px; left: -80px; }
+.hero-inner { max-width: 960px; width: 100%; text-align: center; position: relative; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-light); border: 1px solid rgba(0,200,83,.3);
+  padding: 6px 16px; border-radius: 20px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-mid);
+  margin-bottom: 2rem;
+}
+.eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pdot 2s infinite; }
+h1.hero-title {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+  font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.0; letter-spacing: -.01em;
+  color: var(--ink); margin-bottom: 1.5rem;
+}
+.ag { color: var(--green); } .ab { color: var(--blue); }
+.hero-sub { font-size: clamp(.95rem, 2vw, 1.2rem); font-weight: 400; color: var(--ink3); max-width: 660px; margin: 0 auto 2.5rem; line-height: 1.75; }
+.hero-chips { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hchip { display: flex; align-items: center; gap: 6px; background: var(--bg); border: 1px solid var(--border); padding: 7px 14px; border-radius: 8px; font-size: .78rem; font-weight: 600; color: var(--ink2); }
+.hero-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; max-width: 600px; margin: 0 auto; }
+.kpi { background: var(--white); padding: 1.5rem 1rem; text-align: center; }
+.kpi-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; line-height: 1; margin-bottom: .3rem; }
+.kpi-lbl { font-size: .68rem; font-weight: 600; color: var(--ink4); letter-spacing: .07em; text-transform: uppercase; }
+@media(max-width:480px){ .hero-kpis{grid-template-columns:1fr;} }
+ 
+/* SECTION BASE */
+section { padding: 80px 2rem; }
+.si { max-width: 1060px; margin: 0 auto; }
+.phase-badge { display: inline-flex; align-items: center; gap: 8px; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: .75rem; }
+.pbn { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; color: white; }
+.section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(1.9rem,4vw,2.9rem); line-height: 1.1; margin-bottom: .75rem; }
+.section-desc { font-size: .95rem; color: var(--ink3); max-width: 620px; line-height: 1.75; margin-bottom: 2.5rem; }
+.divider { width: 44px; height: 3px; border-radius: 2px; margin-bottom: 1rem; }
+ 
+/* PHASE 1 */
+#phase1 { background: var(--bg); }
+.p1-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:720px){ .p1-grid{grid-template-columns:1fr;} }
+ 
+/* Friction */
+.friction-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--ink2); margin-bottom: .9rem; }
+.fl {
+  display: flex; align-items: center; gap: 12px;
+  background: white; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 14px; margin-bottom: 7px; position: relative; overflow: hidden;
+  transition: transform .2s, box-shadow .2s; cursor: default;
+}
+.fl:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+.fl-n { width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 800; color: white; flex-shrink: 0; background: linear-gradient(135deg,var(--red),#FF6B35); }
+.fl-i { flex: 1; }
+.fl-name { font-size: .82rem; font-weight: 600; color: var(--ink2); }
+.fl-desc { font-size: .68rem; color: var(--ink4); margin-top: 1px; }
+.fl-cost { font-family: 'JetBrains Mono', monospace; font-size: .76rem; font-weight: 500; color: var(--red); background: rgba(255,61,87,.08); padding: 3px 7px; border-radius: 5px; white-space: nowrap; }
+.fl-bar { position: absolute; bottom: 0; left: 0; height: 2px; border-radius: 0 0 0 var(--radius); background: linear-gradient(90deg,var(--red),transparent); }
+ 
+/* TAM */
+.funnel-wrap { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 1rem; }
+.funnel-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--ink2); margin-bottom: 1.25rem; }
+.flevel { border-radius: var(--radius); padding: .9rem 1.25rem; margin-bottom: 10px; transition: transform .2s; cursor: default; }
+.flevel:hover { transform: scale(1.01); }
+.flt { font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 3px; }
+.flv { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2rem; line-height: 1; }
+.fls { font-size: .72rem; margin-top: 2px; }
+.farrow { text-align: center; font-size: 1rem; color: var(--ink4); margin: 3px 0; }
+.fl-tam { background: #EBF1FF; }
+.fl-tam .flt { color: var(--blue-mid); } .fl-tam .flv { color: var(--blue); } .fl-tam .fls { color: var(--blue-mid); }
+.fl-sam { background: #FFF3E0; }
+.fl-sam .flt { color: #E65100; } .fl-sam .flv { color: var(--amber); } .fl-sam .fls { color: #E65100; }
+.fl-som { background: var(--green-light); border: 2px solid rgba(0,200,83,.4); position: relative; }
+.fl-som .flt { color: var(--green-mid); } .fl-som .flv { color: var(--green); } .fl-som .fls { color: var(--green-mid); }
+.som-badge { position: absolute; top: 10px; right: 10px; background: var(--green); color: white; font-size: .6rem; font-weight: 700; padding: 2px 7px; border-radius: 8px; letter-spacing: .05em; }
+ 
+.pain-banner {
+  background: white; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+}
+.pb-icon { font-size: 2.2rem; flex-shrink: 0; }
+.pb-head { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--red); margin-bottom: .3rem; }
+.pb-text { font-size: .82rem; color: var(--ink3); line-height: 1.7; }
+.pb-math { display: inline-flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-top: .6rem; }
+.pmc { font-family: 'JetBrains Mono', monospace; font-size: .74rem; background: rgba(255,61,87,.08); color: var(--red); padding: 3px 8px; border-radius: 5px; }
+.pmo { font-size: .78rem; color: var(--ink4); }
+.pmr { font-family: 'JetBrains Mono', monospace; font-size: .8rem; font-weight: 600; background: var(--red); color: white; padding: 3px 8px; border-radius: 5px; }
+ 
+/* MOAT */
+.moat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
+@media(max-width:720px){ .moat-grid{grid-template-columns:1fr;} }
+.mc { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; transition: transform .25s, box-shadow .25s; }
+.mc:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.mc.hl { border-color: var(--green); background: var(--green-light); }
+.mc-icon { font-size: 1.9rem; margin-bottom: .7rem; }
+.mc-title { font-weight: 700; font-size: .92rem; margin-bottom: .35rem; }
+.mc-desc { font-size: .78rem; color: var(--ink3); line-height: 1.65; }
+.mc-badge { display: inline-block; margin-top: .7rem; background: var(--green); color: white; font-size: .6rem; font-weight: 700; letter-spacing: .06em; padding: 2px 8px; border-radius: 8px; }
+ 
+/* PHASE 2 */
+#phase2 { background: white; }
+.signal-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem 1.5rem; margin-bottom: 1.5rem; overflow-x: auto; }
+.signal-box-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--ink2); margin-bottom: 1.75rem; text-align: center; }
+.sflow { display: flex; align-items: center; justify-content: center; min-width: 680px; }
+.sfnode { background: white; border: 1.5px solid var(--border); border-radius: var(--radius); padding: .9rem .8rem; text-align: center; min-width: 120px; max-width: 140px; transition: transform .2s, box-shadow .2s; cursor: default; }
+.sfnode:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.sfnode.gn { border-color: var(--green); }
+.sfnode.bn { border-color: var(--blue); }
+.sfn-icon { font-size: 1.5rem; margin-bottom: .35rem; }
+.sfn-title { font-size: .74rem; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.sfn-sub { font-size: .6rem; color: var(--ink4); line-height: 1.4; }
+.sfn-tag { display: inline-block; margin-top: 5px; font-size: .57rem; font-weight: 700; padding: 2px 6px; border-radius: 7px; letter-spacing: .05em; }
+.tg { background: var(--green-light); color: var(--green-mid); }
+.tb { background: var(--blue-light); color: var(--blue-mid); }
+.ta { background: #FFF3E0; color: #E65100; }
+.sfar { display: flex; flex-direction: column; align-items: center; padding: 0 3px; flex-shrink: 0; }
+.sfar-line { height: 2px; width: 32px; background: linear-gradient(90deg,var(--border2),var(--green)); }
+.sfar-head { color: var(--green); font-size: .85rem; }
+.sfar-data { font-family: 'JetBrains Mono', monospace; font-size: .54rem; color: var(--ink4); white-space: nowrap; margin-top: 2px; }
+ 
+.p2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:720px){ .p2-grid{grid-template-columns:1fr;} }
+.ccard { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem; }
+.ccard-head { font-weight: 700; font-size: .92rem; margin-bottom: .9rem; display: flex; align-items: center; gap: 7px; }
+.crule { display: flex; align-items: center; gap: 9px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: .8rem; }
+.crule:last-child { border-bottom: none; }
+.cck { color: var(--green); font-size: .95rem; flex-shrink: 0; }
+.cct { color: var(--ink2); flex: 1; }
+.ccv { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--blue); background: var(--blue-light); padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+ 
+.fira-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+.fira-head { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.35rem; margin-bottom: .2rem; }
+.fira-sub { font-size: .8rem; color: var(--ink3); margin-bottom: 1.25rem; }
+.fira-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: 1.25rem; }
+.fkpi { background: var(--bg); border-radius: var(--radius); padding: .9rem; text-align: center; }
+.fkpi-v { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2rem; line-height: 1; }
+.fkpi-l { font-size: .65rem; font-weight: 600; color: var(--ink4); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
+.fstep { display: flex; gap: 11px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: .8rem; }
+.fstep:last-child { border-bottom: none; }
+.fsn { width: 21px; height: 21px; border-radius: 5px; background: var(--blue-light); color: var(--blue); font-size: .62rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.fst { color: #2D3748 !important; flex: 1; }
+.fstm { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--green-mid); background: var(--green-light); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+ 
+/* PHASE 3 */
+#phase3 { background: var(--bg); }
+.scorer-wrap { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 2rem; }
+.scorer-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.4rem; margin-bottom: .2rem; }
+.scorer-sub { font-size: .82rem; color: var(--ink3); margin-bottom: 1.75rem; }
+.scorer-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 2rem; }
+@media(max-width:760px){ .scorer-grid{grid-template-columns:1fr;} }
+.sg { margin-bottom: 1.4rem; }
+.sg-lbl { display: flex; align-items: center; justify-content: space-between; font-size: .78rem; font-weight: 700; color: var(--ink2); margin-bottom: .55rem; }
+.sg-pts { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--blue); background: var(--blue-light); padding: 2px 7px; border-radius: 4px; }
+.sgopts { display: flex; flex-direction: column; gap: 5px; }
+.sgopt {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 9px 11px; cursor: pointer; transition: all .18s;
+  font-size: .8rem; color: var(--ink2);
+}
+.sgopt:hover { border-color: var(--blue); background: var(--blue-light); }
+.sgopt.sel { border-color: var(--green); background: var(--green-light); }
+.sgopt input { display: none; }
+.sgor { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--border2); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .18s; }
+.sgopt.sel .sgor { border-color: var(--green); background: var(--green); }
+.sgopt.sel .sgor::after { content:''; width:5px; height:5px; border-radius:50%; background:white; }
+.sgot { flex: 1; }
+.sgop { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--ink4); }
+.sgopt.sel .sgop { color: var(--green-mid); }
+ 
+.score-result { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.score-dial { position: relative; width: 170px; height: 170px; margin-bottom: 1.25rem; }
+.score-dial svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.sd-track { fill: none; stroke: var(--border); stroke-width: 11; }
+.sd-fill { fill: none; stroke-width: 11; stroke-linecap: round; transition: stroke-dashoffset .7s cubic-bezier(.22,1,.36,1), stroke .4s; }
+.sdc { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+.sdc-n { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.8rem; line-height: 1; transition: color .4s; }
+.sdc-l { font-size: .62rem; font-weight: 700; letter-spacing: .1em; color: var(--ink4); text-transform: uppercase; }
+.score-tier { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.5rem; text-align: center; margin-bottom: .4rem; }
+.score-act { font-size: .78rem; color: var(--ink3); text-align: center; max-width: 200px; line-height: 1.6; }
+.score-bk { width: 100%; margin-top: .9rem; }
+.sbrow { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; font-size: .72rem; }
+.sblbl { color: var(--ink3); width: 88px; flex-shrink: 0; }
+.sbbw { flex: 1; height: 5px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.sbbar { height: 100%; background: var(--green); border-radius: 3px; transition: width .6s cubic-bezier(.22,1,.36,1); }
+.sbval { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--ink4); width: 26px; text-align: right; }
+ 
+/* TABS */
+.tabs-wrap { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.tab-nav { display: flex; border-bottom: 1px solid var(--border); }
+.tab-btn { flex: 1; padding: .85rem .5rem; font-family: 'Barlow', sans-serif; font-size: .8rem; font-weight: 600; background: none; border: none; cursor: pointer; color: var(--ink3); border-bottom: 2px solid transparent; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.tab-btn:hover { color: var(--ink); background: var(--bg); }
+.tab-btn.active { color: var(--ink); border-bottom-color: var(--green); background: var(--green-light); }
+.tab-flag { font-size: 1.2rem; }
+.tab-cty { font-size: .6rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink4); }
+.tab-panel { display: none; padding: 1.75rem; }
+.tab-panel.active { display: block; }
+.oc-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 1.1rem; }
+.oc-chip { display: flex; align-items: center; gap: 5px; background: var(--bg); border: 1px solid var(--border); padding: 3px 9px; border-radius: 5px; font-size: .7rem; font-weight: 600; color: var(--ink3); }
+.email-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; font-family: 'JetBrains Mono', monospace; font-size: .76rem; line-height: 1.85; color: var(--ink2); position: relative; }
+.ef { display: flex; gap: 7px; margin-bottom: 3px; }
+.efk { color: var(--ink4); min-width: 56px; }
+.efv { color: var(--ink); }
+.ediv { border: none; border-top: 1px dashed var(--border2); margin: 9px 0; }
+.ebody { white-space: pre-wrap; }
+.hlg { color: var(--green-mid); font-weight: 500; }
+.hlb { color: var(--blue); font-weight: 500; }
+.copy-btn { position: absolute; top: 10px; right: 10px; background: var(--ink); color: white; border: none; cursor: pointer; font-size: .68rem; font-weight: 600; padding: 4px 10px; border-radius: 5px; transition: background .2s; font-family: 'Barlow', sans-serif; }
+.copy-btn:hover { background: var(--green); }
+
+/* ════════════════════════════════════════════
+   ROI CALCULATOR SECTION
+════════════════════════════════════════════ */
+#roi-calc {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+#roi-calc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0,200,83,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,83,.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.roi-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.roi-orb-1 { width: 600px; height: 600px; background: rgba(0,200,83,.06); top: -200px; left: -150px; }
+.roi-orb-2 { width: 400px; height: 400px; background: rgba(41,121,255,.05); bottom: -100px; right: -100px; }
+
+.roi-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media(max-width: 840px) {
+  .roi-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* LEFT HERO TEXT */
+.roi-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.roi-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-light); border: 1px solid rgba(0,200,83,.3);
+  padding: 5px 14px; border-radius: 20px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--green-mid);
+  margin-bottom: 1.5rem; align-self: flex-start;
+}
+.roi-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  line-height: 1.0;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.roi-savings-amount {
+  display: block;
+  color: var(--green);
+  position: relative;
+  transition: none;
+}
+.roi-savings-amount.animating {
+  animation: savingsPop .35s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes savingsPop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.roi-sub {
+  font-size: .95rem;
+  color: var(--ink3);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.roi-stat-pills {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+.rsp {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: .82rem;
+  color: var(--ink2);
+}
+.rsp-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .95rem; flex-shrink: 0;
+}
+.rsp-icon.g { background: var(--green-light); }
+.rsp-icon.r { background: rgba(255,61,87,.08); }
+.rsp-icon.b { background: var(--blue-light); }
+.rsp strong { font-weight: 700; }
+
+.roi-trust-badges {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.rtb {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 6px;
+  font-size: .68rem; font-weight: 600; color: var(--ink3);
+}
+
+/* RIGHT CALCULATOR CARD */
+.roi-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,200,83,.06);
+  position: relative;
+  overflow: hidden;
+}
+.roi-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), #00E676);
+  border-radius: 24px 24px 0 0;
+}
+
+.roi-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: .25rem;
+}
+.roi-card-sub {
+  font-size: .76rem;
+  color: var(--ink4);
+  margin-bottom: 1.75rem;
+}
+
+/* EXCHANGE RATE PILL */
+.roi-rate-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--green-light);
+  border: 1px solid rgba(0,200,83,.25);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--green-mid);
+  margin-bottom: 1.5rem;
+}
+.roi-rate-pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  animation: pdot 2s infinite;
+}
+
+/* INVOICE INPUT AREA */
+.roi-input-label {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--ink3);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: .65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.roi-amount-display {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+.roi-currency-badge {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink3);
+  flex-shrink: 0;
+}
+.roi-amount-input {
+  flex: 1;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: .6rem 1rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%;
+}
+.roi-amount-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(0,200,83,.1);
+}
+.roi-amount-input::-webkit-inner-spin-button,
+.roi-amount-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+.roi-amount-input[type=number] { -moz-appearance: textfield; }
+
+/* SLIDER */
+.roi-slider-wrap {
+  position: relative;
+  margin-bottom: .5rem;
+}
+.roi-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: background .15s;
+}
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0,200,83,.4);
+  transition: transform .15s, box-shadow .15s;
+}
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 16px rgba(0,200,83,.5);
+}
+.roi-slider::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green); cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 10px rgba(0,200,83,.4);
+}
+.roi-slider-labels {
+  display: flex; justify-content: space-between;
+  font-size: .65rem; color: var(--ink4); font-weight: 600;
+  margin-top: 5px; margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* DIVIDER LINE */
+.roi-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+/* RESULT ROWS */
+.roi-result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: .5rem;
+  border: 1.5px solid transparent;
+  transition: all .25s;
+}
+.roi-result-row.winner {
+  background: var(--green-light);
+  border-color: rgba(0,200,83,.35);
+  box-shadow: 0 2px 12px rgba(0,200,83,.1);
+}
+.roi-result-row.loser {
+  background: var(--bg);
+  border-color: var(--border);
+}
+.rrr-left { display: flex; align-items: center; gap: 9px; }
+.rrr-icon { font-size: 1.1rem; }
+.rrr-name {
+  font-size: .82rem; font-weight: 700; color: var(--ink2);
+  display: flex; align-items: center; gap: 6px;
+}
+.rrr-badge-win {
+  font-size: .55rem; font-weight: 800; letter-spacing: .06em;
+  background: var(--green); color: white;
+  padding: 1px 6px; border-radius: 6px;
+  text-transform: uppercase;
+}
+.rrr-sub { font-size: .68rem; color: var(--ink4); }
+.rrr-right { text-align: right; }
+.rrr-amount {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: 1.25rem;
+  line-height: 1;
+  transition: all .3s cubic-bezier(.22,1,.36,1);
+}
+.roi-result-row.winner .rrr-amount { color: var(--green-mid); }
+.roi-result-row.loser .rrr-amount { color: var(--red); }
+.rrr-loss {
+  font-size: .68rem; font-weight: 600;
+  display: flex; align-items: center; gap: 3px;
+  justify-content: flex-end;
+  margin-top: 2px;
+}
+.roi-result-row.loser .rrr-loss { color: var(--red); }
+
+/* SAVINGS CALLOUT */
+.roi-savings-callout {
+  background: linear-gradient(135deg, #0D1117, #1a2332);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: .5rem;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+.rsc-left {}
+.rsc-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: .2rem;
+}
+.rsc-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+  color: var(--green);
+  line-height: 1;
+  transition: all .35s cubic-bezier(.22,1,.36,1);
+}
+.rsc-note {
+  font-size: .65rem;
+  color: rgba(255,255,255,.35);
+  margin-top: 2px;
+}
+.rsc-cta {
+  background: var(--green);
+  color: white;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: .78rem;
+  padding: .55rem 1.1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  transition: background .2s, transform .15s;
+  flex-shrink: 0;
+}
+.rsc-cta:hover { background: var(--green-mid); transform: scale(1.03); }
+
+/* TOGGLE ROWS: monthly/annual */
+.roi-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1.2rem;
+  justify-content: flex-end;
+}
+.roi-toggle-lbl { font-size: .7rem; font-weight: 600; color: var(--ink3); }
+.roi-toggle {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+.rtt {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: .68rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--ink3);
+  transition: all .15s;
+  font-family: 'Barlow', sans-serif;
+}
+.rtt.active { background: var(--white); color: var(--green-mid); box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+
+/* COMPETITIVE (now embedded inside phase1 section) */
+.ctable-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.ctable { width: 100%; border-collapse: collapse; min-width: 600px; }
+.ctable th { background: var(--bg); border: 1px solid var(--border); padding: 11px 14px; font-size: .74rem; font-weight: 700; color: var(--ink3); letter-spacing: .06em; text-transform: uppercase; text-align: left; }
+.ctable td { border: 1px solid var(--border); padding: 11px 14px; font-size: .8rem; color: var(--ink2); vertical-align: middle; }
+.ctable tr:hover td { background: var(--bg); }
+.ctable tr.skr td { background: var(--green-light) !important; font-weight: 600; }
+.skr td:first-child { color: var(--green-mid); font-weight: 700; }
+.cck2 { color: var(--green); } .ccx { color: var(--red); } .ccm { color: var(--amber); }
+.ctfee { font-family: 'JetBrains Mono', monospace; font-size: .77rem; }
+ 
+/* FOOTER */
+footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 3rem 2rem; }
+.fi { max-width: 1060px; margin: 0 auto; }
+.ftop { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+.fbrand { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.35rem; color: white; margin-bottom: .4rem; }
+.ftagline { font-size: .76rem; line-height: 1.65; max-width: 260px; }
+.fst { font-size: .67rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: .65rem; }
+.fsi { font-size: .73rem; margin-bottom: 4px; }
+.fbot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .73rem; }
+.fauth { color: rgba(255,255,255,.38); }
+.fauth strong { color: white; }
+.fdisc { font-size: .65rem; max-width: 370px; text-align: right; }
+@media(max-width:580px){ .fbot{flex-direction:column;} .fdisc{text-align:left;} }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-dot"></div>
+    AFRICA CORRIDOR PLAYBOOK
+  </div>
+  <ul class="nav-links">
+    <li><a href="#phase1">01 Market</a></li>
+    <li><a href="#phase2">02 Technical</a></li>
+    <li><a href="#phase3">03 Growth</a></li>
+    <li><a href="#roi-calc">ROI</a></li>
+    <li><a href="#competitive">Matrix</a></li>
+  </ul>
+  <div class="nav-badge">PS-II · Apr 2026</div>
+</nav>
+ 
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow reveal">
+      <span class="eyebrow-dot"></span>
+      GTM Associate Internship &nbsp;·&nbsp; Skydo Technologies &nbsp;·&nbsp; PS-II Cycle April 2026
+    </div>
+    <h1 class="hero-title reveal d1">
+      The <span class="ag">African</span> Corridor:<br/>
+      Unlocking Skydo's Next<br/>
+      <span class="ab">$100M</span> Market
+    </h1>
+    <p class="hero-sub reveal d2">
+      An end-to-end GTM strategy to dismantle the <strong>7–11% fee leakage</strong> in Indo-African B2B payments — built by <strong>Basva Murali Karthik</strong> @ BITS Pilani, Goa.
+    </p>
+    <div class="hero-chips reveal d3">
+      <div class="hchip">📊 3-Phase Deep Dive</div>
+      <div class="hchip">🌍 Nigeria · Kenya · Egypt</div>
+      <div class="hchip">🎯 Live Lead Scorer</div>
+      <div class="hchip">💰 ROI Calculator</div>
+      <div class="hchip">📧 Outreach Templates</div>
+    </div>
+    <div class="hero-kpis reveal d4">
+      <div class="kpi"><div class="kpi-val" style="color:var(--red)">11%</div><div class="kpi-lbl">Max Fee Leakage</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--green)">$19</div><div class="kpi-lbl">Skydo Flat Fee</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--blue)">$2B</div><div class="kpi-lbl">Addressable Market</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ PHASE 1 ══ -->
+<section id="phase1">
+  <div class="si">
+    <div class="reveal">
+      <div class="phase-badge"><div class="pbn" style="background:var(--red)">01</div><span style="color:var(--red)">Market Intelligence & Strategic Value</span></div>
+      <div class="divider" style="background:var(--red)"></div>
+      <h2 class="section-title">The Friction & The TAM</h2>
+      <p class="section-desc">India's IT sector exports $224B annually — yet the Africa corridor hides a 7-layer compounding cost structure that bleeds exporters up to 11% per invoice. Here's the anatomy of the pain.</p>
+    </div>
+ 
+    <div class="p1-grid">
+      <div>
+        <div class="friction-label reveal">🔴 The 7-Layer Friction Stack</div>
+        <div class="fl reveal d1"><div class="fl-n">1</div><div class="fl-i"><div class="fl-name">FX Bid-Ask Spread</div><div class="fl-desc">Correspondent banks apply 2–4% markup over mid-market rate</div></div><div class="fl-cost">2–4%</div><div class="fl-bar" style="width:92%"></div></div>
+        <div class="fl reveal d1"><div class="fl-n">2</div><div class="fl-i"><div class="fl-name">SWIFT Correspondent Fees</div><div class="fl-desc">Each intermediary bank levies $15–$35 per wire transfer</div></div><div class="fl-cost">$15–35</div><div class="fl-bar" style="width:78%"></div></div>
+        <div class="fl reveal d2"><div class="fl-n">3</div><div class="fl-i"><div class="fl-name">Settlement Delay</div><div class="fl-desc">T+5 to T+9 days, blocking working capital and cash flow</div></div><div class="fl-cost">9 days</div><div class="fl-bar" style="width:72%"></div></div>
+        <div class="fl reveal d2"><div class="fl-n">4</div><div class="fl-i"><div class="fl-name">FIRA Issuance Lag</div><div class="fl-desc">Manual FIRA process takes 48–72 hrs at legacy banks</div></div><div class="fl-cost">72 hrs</div><div class="fl-bar" style="width:62%"></div></div>
+        <div class="fl reveal d3"><div class="fl-n">5</div><div class="fl-i"><div class="fl-name">Regulatory Non-Compliance Risk</div><div class="fl-desc">Missing FEMA/RBI docs triggers fines up to 3× transaction</div></div><div class="fl-cost">3× fine</div><div class="fl-bar" style="width:50%"></div></div>
+        <div class="fl reveal d3"><div class="fl-n">6</div><div class="fl-i"><div class="fl-name">Currency Volatility Buffer</div><div class="fl-desc">NGN/KES devaluation forces exporters to add 2–3% contingency</div></div><div class="fl-cost">2–3%</div><div class="fl-bar" style="width:55%"></div></div>
+        <div class="fl reveal d4"><div class="fl-n">7</div><div class="fl-i"><div class="fl-name">Manual Reconciliation Overhead</div><div class="fl-desc">Finance teams spend 4–6 hrs/week chasing confirmations</div></div><div class="fl-cost">6 hrs/wk</div><div class="fl-bar" style="width:40%"></div></div>
+      </div>
+ 
+      <div class="reveal reveal-right">
+        <div class="funnel-wrap">
+          <div class="funnel-label">📐 TAM → SAM → SOM Funnel</div>
+          <div class="flevel fl-tam">
+            <div class="flt">Total Addressable Market</div>
+            <div class="flv">$224B</div>
+            <div class="fls">India IT/ITeS Total Exports — NASSCOM FY25</div>
+          </div>
+          <div class="farrow">▼</div>
+          <div class="flevel fl-sam">
+            <div class="flt">Serviceable Addressable Market</div>
+            <div class="flv">$2B</div>
+            <div class="fls">Nigeria + Kenya + Egypt IT Services Corridor</div>
+          </div>
+          <div class="farrow">▼</div>
+          <div class="flevel fl-som">
+            <div class="som-badge">SKYDO TARGET</div>
+            <div class="flt">Serviceable Obtainable Market</div>
+            <div class="flv">$100M+</div>
+            <div class="fls">5% capture → ~1,800 exporters × $55K avg annual volume</div>
+          </div>
+        </div>
+        <div class="pain-banner">
+          <div class="pb-icon">💸</div>
+          <div>
+            <div class="pb-head">The $220 Problem</div>
+            <div class="pb-text">On every $2,000 invoice sent from India to Nigeria or Kenya, a typical exporter loses up to $220 in compounded fees. Skydo's $19 flat fee recovers 91% of that leakage instantly.</div>
+            <div class="pb-math">
+              <span class="pmc">$2,000 invoice</span><span class="pmo">×</span><span class="pmc">11% bleed</span><span class="pmo">=</span><span class="pmr">$220 LOST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="reveal" style="margin-top:2.5rem">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.5rem;margin-bottom:.4rem">Skydo's Unassailable Moat</h3>
+      <p style="font-size:.83rem;color:var(--ink3);margin-bottom:.5rem">Three structural advantages competitors cannot replicate without 18–24 months of regulatory runway.</p>
+    </div>
+    <div class="moat-grid">
+      <div class="mc hl reveal d1"><div class="mc-icon">🛡️</div><div class="mc-title">RBI PA-CB License</div><div class="mc-desc">The only license permitting automated FIRA issuance for cross-border B2B collections on Indian soil. Competitors using AD-II banks cannot legally automate this.</div><span class="mc-badge">LEGAL MOAT</span></div>
+      <div class="mc reveal d2"><div class="mc-icon">⚡</div><div class="mc-title">$19 Flat Fee Model</div><div class="mc-desc">Compared to 2–4% FX spread + $25 SWIFT fee at legacy banks, Skydo's tiered flat fee ($19 / $29 / 0.3%) saves exporters $150–$200 per $2,000 invoice. Pure math wins.</div></div>
+      <div class="mc reveal d3"><div class="mc-icon">🌍</div><div class="mc-title">Virtual Multi-Currency Accounts</div><div class="mc-desc">NGN, KES, and EGP virtual collection accounts mean African clients pay in local currency — zero friction on the sender's side, zero SWIFT on ours.</div></div>
+    </div>
+
+    <!-- ══ COMPETITIVE ══ -->
+    <div id="competitive" style="margin-top:2.5rem">
+<div class="reveal">
+      <div class="phase-badge"><div class="pbn" style="background:var(--ink)">→</div><span style="color:var(--ink3)">Competitive Positioning</span></div>
+      <div class="divider" style="background:var(--ink3)"></div>
+      <h2 class="section-title">How Skydo Wins the Matrix</h2>
+      <p class="section-desc">A feature-by-feature comparison across the India-Africa B2B payment landscape. No competitor combines the full stack.</p>
+    </div>
+    <div class="ctable-wrap reveal">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Africa Virtual A/C</th>
+            <th>FIRA Automation</th>
+            <th>RBI PA-CB License</th>
+            <th>Fee per $2K Invoice</th>
+            <th>Settlement Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="skr">
+            <td>⚡ Skydo</td>
+            <td><span class="cck2">✓</span> NGN / KES / EGP</td>
+            <td><span class="cck2">✓</span> &lt;4 hours</td>
+            <td><span class="cck2">✓</span> RBI Licensed</td>
+            <td class="ctfee" style="color:var(--green)">$19 / $29 / 0.3%</td>
+            <td>T+1</td>
+          </tr>
+          <tr>
+            <td>SBI / ICICI (legacy)</td>
+            <td><span class="ccx">✗</span></td>
+            <td><span class="ccx">✗</span> Manual, 72 hrs</td>
+            <td><span class="ccx">✗</span> AD-II only</td>
+            <td class="ctfee" style="color:var(--red)">$180–220</td>
+            <td>T+5 to T+9</td>
+          </tr>
+          <tr>
+            <td>Wise Business</td>
+            <td><span class="ccm">~</span> Limited markets</td>
+            <td><span class="ccx">✗</span> Not available</td>
+            <td><span class="ccx">✗</span> No India PA-CB</td>
+            <td class="ctfee">$40–60</td>
+            <td>T+1–2</td>
+          </tr>
+          <tr>
+            <td>Payoneer</td>
+            <td><span class="ccm">~</span> USD only</td>
+            <td><span class="ccx">✗</span> Not available</td>
+            <td><span class="ccx">✗</span> No India PA-CB</td>
+            <td class="ctfee">$50–80</td>
+            <td>T+2–3</td>
+          </tr>
+          <tr>
+            <td>Airwallex</td>
+            <td><span class="ccm">~</span> No Africa local</td>
+            <td><span class="ccx">✗</span> Not available</td>
+            <td><span class="ccx">✗</span> No India PA-CB</td>
+            <td class="ctfee">$30–50</td>
+            <td>T+1–2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ PHASE 2 ══ -->
+<section id="phase2">
+  <div class="si">
+    <div class="reveal">
+      <div class="phase-badge"><div class="pbn" style="background:var(--blue)">02</div><span style="color:var(--blue)">Technical Architecture</span></div>
+      <div class="divider" style="background:var(--blue)"></div>
+      <h2 class="section-title">The Signal Flow</h2>
+      <p class="section-desc">From a Kenyan client's M-Pesa tap to an Indian founder's INR credit — the end-to-end KES payment signal path and the PA-CB compliance layer that makes it RBI-legal.</p>
+    </div>
+ 
+    <div class="signal-box reveal">
+      <div class="signal-box-title">🔄 KES Signal Flow — End-to-End Architecture</div>
+      <div class="sflow">
+        <div class="sfnode"><div class="sfn-icon">🇰🇪</div><div class="sfn-title">Kenyan Client</div><div class="sfn-sub">M-Pesa / KCB Bank Transfer in KES</div><div class="sfn-tag ta">SENDER</div></div>
+        <div class="sfar"><div class="sfar-line"></div><div class="sfar-head">→</div><div class="sfar-data">KES</div></div>
+        <div class="sfnode bn"><div class="sfn-icon">🏦</div><div class="sfn-title">Skydo Virtual KES Account</div><div class="sfn-sub">Local collection via Equity Bank / KCB partnership</div><div class="sfn-tag tb">COLLECT</div></div>
+        <div class="sfar"><div class="sfar-line"></div><div class="sfar-head">→</div><div class="sfar-data">Normalize</div></div>
+        <div class="sfnode bn"><div class="sfn-icon">🔄</div><div class="sfn-title">FX Engine</div><div class="sfn-sub">KES → USD → INR at interbank rate. ≤0.5% spread.</div><div class="sfn-tag tb">CONVERT</div></div>
+        <div class="sfar"><div class="sfar-line"></div><div class="sfar-head">→</div><div class="sfar-data">INR</div></div>
+        <div class="sfnode gn"><div class="sfn-icon">📋</div><div class="sfn-title">PA-CB Compliance Layer</div><div class="sfn-sub">RBI ₹25L limit check. Auto-FIRA. FEMA tagging.</div><div class="sfn-tag tg">COMPLY</div></div>
+        <div class="sfar"><div class="sfar-line"></div><div class="sfar-head">→</div><div class="sfar-data">INR + FIRA</div></div>
+        <div class="sfnode gn"><div class="sfn-icon">🇮🇳</div><div class="sfn-title">Indian Exporter's Bank</div><div class="sfn-sub">INR credit + FIRA auto-emailed. T+1 settlement.</div><div class="sfn-tag tg">SETTLE</div></div>
+      </div>
+    </div>
+ 
+    <div class="p2-grid">
+      <div class="ccard reveal reveal-left">
+        <div class="ccard-head"><span>📐</span> Compliance Architecture</div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">Transaction cap enforcement per RBI 2024/2026 PA-CB guidelines</span><span class="ccv">₹25L/txn</span></div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">Automated FEMA purpose-code tagging (P0802 for IT services)</span><span class="ccv">Auto</span></div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">AML/KYC screening on sender + recipient via CKYC registry</span><span class="ccv">Real-time</span></div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">Currency normalization: KES/NGN/EGP → USD bridge → INR</span><span class="ccv">2-hop FX</span></div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">FIRA auto-generation on successful INR settlement event</span><span class="ccv">&lt;4 hrs</span></div>
+        <div class="crule"><span class="cck">✓</span><span class="cct">Audit trail export for AD Bank submission (Form A2)</span><span class="ccv">PDF/API</span></div>
+      </div>
+ 
+      <div class="fira-card reveal reveal-right">
+        <div class="fira-head">Africa FIRA Compliance Dashboard</div>
+        <div class="fira-sub">PRD Snippet — Product Requirements for Africa Corridor</div>
+        <div class="fira-kpis">
+          <div class="fkpi"><div class="fkpi-v" style="color:var(--green)">≤4 hrs</div><div class="fkpi-l">FIRA Issuance SLA</div></div>
+          <div class="fkpi"><div class="fkpi-v" style="color:var(--blue)">&lt;2%</div><div class="fkpi-l">Overdue Rate Target</div></div>
+          <div class="fkpi"><div class="fkpi-v" style="color:var(--amber)">T+1</div><div class="fkpi-l">Settlement Target</div></div>
+          <div class="fkpi"><div class="fkpi-v" style="color:var(--ink)">99.5%</div><div class="fkpi-l">Uptime SLA</div></div>
+        </div>
+        <div class="fstep"><div class="fsn">1</div><div class="fst">Payment received in Virtual KES/NGN/EGP account</div><div class="fstm">T+0</div></div>
+        <div class="fstep"><div class="fsn">2</div><div class="fst">FX conversion + compliance check auto-triggered</div><div class="fstm">+15 min</div></div>
+        <div class="fstep"><div class="fsn">3</div><div class="fst">INR credited to exporter's linked bank account</div><div class="fstm">+6 hrs</div></div>
+        <div class="fstep"><div class="fsn">4</div><div class="fst">FIRA auto-generated, emailed + available on dashboard</div><div class="fstm">≤4 hrs</div></div>
+        <div class="fstep"><div class="fsn">5</div><div class="fst">Exporter notified via SMS + email with transaction digest</div><div class="fstm">T+1</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ PHASE 3 ══ -->
+<section id="phase3">
+  <div class="si">
+    <div class="reveal">
+      <div class="phase-badge"><div class="pbn" style="background:var(--green)">03</div><span style="color:var(--green)">Growth & Sales Execution</span></div>
+      <div class="divider" style="background:var(--green)"></div>
+      <h2 class="section-title">Lead Scoring & Outreach Engine</h2>
+      <p class="section-desc">A 100-point quantitative framework to prioritize which Indian IT exporters to target first — and three hyper-personalized "Revenue Recovery" templates to convert them.</p>
+    </div>
+ 
+    <!-- LEAD SCORER -->
+    <div class="scorer-wrap reveal">
+      <div class="scorer-title">🎯 Interactive Lead Scorer</div>
+      <div class="scorer-sub">Configure a prospect profile below to calculate their real-time priority score and outreach recommendation.</div>
+      <div class="scorer-grid">
+        <div>
+ 
+          <div class="sg">
+            <div class="sg-lbl">African Revenue Exposure <span class="sg-pts" id="pts-revenue">— / 35 pts</span></div>
+            <div class="sgopts" id="grp-revenue">
+              <label class="sgopt" data-group="revenue" data-val="35"><input type="radio" name="revenue"/><div class="sgor"></div><div class="sgot">&gt;40% revenue from African clients</div><span class="sgop">35 pts</span></label>
+              <label class="sgopt" data-group="revenue" data-val="25"><input type="radio" name="revenue"/><div class="sgor"></div><div class="sgot">20–40% revenue from Africa</div><span class="sgop">25 pts</span></label>
+              <label class="sgopt" data-group="revenue" data-val="12"><input type="radio" name="revenue"/><div class="sgor"></div><div class="sgot">5–20% revenue from Africa</div><span class="sgop">12 pts</span></label>
+              <label class="sgopt" data-group="revenue" data-val="4"><input type="radio" name="revenue"/><div class="sgor"></div><div class="sgot">&lt;5% — minimal Africa exposure</div><span class="sgop">4 pts</span></label>
+            </div>
+          </div>
+ 
+          <div class="sg">
+            <div class="sg-lbl">Annual Africa Transaction Volume <span class="sg-pts" id="pts-volume">— / 30 pts</span></div>
+            <div class="sgopts" id="grp-volume">
+              <label class="sgopt" data-group="volume" data-val="30"><input type="radio" name="volume"/><div class="sgor"></div><div class="sgot">&gt;$500K / year</div><span class="sgop">30 pts</span></label>
+              <label class="sgopt" data-group="volume" data-val="20"><input type="radio" name="volume"/><div class="sgor"></div><div class="sgot">$100K – $500K / year</div><span class="sgop">20 pts</span></label>
+              <label class="sgopt" data-group="volume" data-val="10"><input type="radio" name="volume"/><div class="sgor"></div><div class="sgot">$20K – $100K / year</div><span class="sgop">10 pts</span></label>
+              <label class="sgopt" data-group="volume" data-val="3"><input type="radio" name="volume"/><div class="sgor"></div><div class="sgot">&lt;$20K / year</div><span class="sgop">3 pts</span></label>
+            </div>
+          </div>
+ 
+          <div class="sg">
+            <div class="sg-lbl">Pain Signals Detected <span class="sg-pts" id="pts-pain">— / 20 pts</span></div>
+            <div class="sgopts" id="grp-pain">
+              <label class="sgopt" data-group="pain" data-val="20"><input type="radio" name="pain"/><div class="sgor"></div><div class="sgot">Publicly complained about SWIFT delays or fees</div><span class="sgop">20 pts</span></label>
+              <label class="sgopt" data-group="pain" data-val="14"><input type="radio" name="pain"/><div class="sgor"></div><div class="sgot">Using legacy bank (SBI/ICICI international)</div><span class="sgop">14 pts</span></label>
+              <label class="sgopt" data-group="pain" data-val="7"><input type="radio" name="pain"/><div class="sgor"></div><div class="sgot">Recently expanded into Africa (LinkedIn signal)</div><span class="sgop">7 pts</span></label>
+              <label class="sgopt" data-group="pain" data-val="2"><input type="radio" name="pain"/><div class="sgor"></div><div class="sgot">No visible pain signal detected</div><span class="sgop">2 pts</span></label>
+            </div>
+          </div>
+ 
+          <div class="sg">
+            <div class="sg-lbl">Reachability <span class="sg-pts" id="pts-reach">— / 15 pts</span></div>
+            <div class="sgopts" id="grp-reach">
+              <label class="sgopt" data-group="reach" data-val="15"><input type="radio" name="reach"/><div class="sgor"></div><div class="sgot">Direct LinkedIn + email for founder/CFO confirmed</div><span class="sgop">15 pts</span></label>
+              <label class="sgopt" data-group="reach" data-val="9"><input type="radio" name="reach"/><div class="sgor"></div><div class="sgot">Company email only (via Apollo / Hunter.io)</div><span class="sgop">9 pts</span></label>
+              <label class="sgopt" data-group="reach" data-val="4"><input type="radio" name="reach"/><div class="sgor"></div><div class="sgot">LinkedIn only — connection request needed</div><span class="sgop">4 pts</span></label>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="score-result">
+          <div class="score-dial">
+            <svg viewBox="0 0 170 170">
+              <circle class="sd-track" cx="85" cy="85" r="68"/>
+              <circle class="sd-fill" id="score-arc" cx="85" cy="85" r="68"
+                stroke-dasharray="427.3" stroke-dashoffset="427.3" stroke="var(--green)"/>
+            </svg>
+            <div class="sdc">
+              <div class="sdc-n" id="score-num" style="color:var(--ink4)">—</div>
+              <div class="sdc-l">/ 100</div>
+            </div>
+          </div>
+          <div class="score-tier" id="score-tier" style="color:var(--ink4)">Set Parameters</div>
+          <div class="score-act" id="score-act">Select all four criteria to calculate your prospect's priority score.</div>
+          <div class="score-bk" id="score-bk" style="display:none">
+            <div class="sbrow"><span class="sblbl">Revenue</span><div class="sbbw"><div class="sbbar" id="bar-revenue" style="width:0%"></div></div><span class="sbval" id="bv-revenue">—</span></div>
+            <div class="sbrow"><span class="sblbl">Volume</span><div class="sbbw"><div class="sbbar" id="bar-volume" style="width:0%"></div></div><span class="sbval" id="bv-volume">—</span></div>
+            <div class="sbrow"><span class="sblbl">Pain Signals</span><div class="sbbw"><div class="sbbar" id="bar-pain" style="width:0%"></div></div><span class="sbval" id="bv-pain">—</span></div>
+            <div class="sbrow"><span class="sblbl">Reachability</span><div class="sbbw"><div class="sbbar" id="bar-reach" style="width:0%"></div></div><span class="sbval" id="bv-reach">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- OUTREACH TABS -->
+    <div class="reveal">
+      <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.45rem;margin-bottom:.35rem">Revenue Recovery Outreach Templates</h3>
+      <p style="font-size:.83rem;color:var(--ink3);margin-bottom:1.25rem">Three hyper-personalized cold emails — one per corridor. Each leads with money the prospect is <em>already</em> losing today.</p>
+    </div>
+    <div class="tabs-wrap reveal">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('ngn',this)"><span class="tab-flag">🇳🇬</span><span>Nigeria</span><span class="tab-cty">NGN Corridor</span></button>
+        <button class="tab-btn" onclick="switchTab('kes',this)"><span class="tab-flag">🇰🇪</span><span>Kenya</span><span class="tab-cty">KES Corridor</span></button>
+        <button class="tab-btn" onclick="switchTab('egp',this)"><span class="tab-flag">🇪🇬</span><span>Egypt</span><span class="tab-cty">EGP Corridor</span></button>
+      </div>
+ 
+      <div class="tab-panel active" id="panel-ngn">
+        <div class="oc-meta">
+          <div class="oc-chip">🎯 ICP: Indian SaaS/IT firms with Lagos clients</div>
+          <div class="oc-chip">📍 Hook: NGN fees + 9-day settlement</div>
+          <div class="oc-chip">🔁 Touch 1 of 3</div>
+        </div>
+        <div class="email-box">
+          <button class="copy-btn" onclick="copyEmail('ngn',event)">Copy</button>
+          <div class="ef"><span class="efk">Subject:</span><span class="efv">Quick math on your Nigeria invoices, [Name]</span></div>
+          <div class="ef"><span class="efk">To:</span><span class="efv">[Founder/CFO] @ [Indian IT Company]</span></div>
+          <hr class="ediv"/>
+          <div class="ebody" id="body-ngn">Hi [Name],
+ 
+I noticed [Company] has been expanding its client base in Lagos — congrats on that growth.
+ 
+Quick back-of-napkin math: if your Nigeria clients send you <span class="hlb">$5,000/month</span>, your current bank is likely eating <span class="hlg">$400–$550 every month</span> in FX spreads, SWIFT charges, and settlement delays alone. That's <span class="hlg">$5,000–$6,600/year</span> in pure leakage.
+ 
+Skydo's flat <span class="hlg">₹1,499 fee</span> per transfer — with a Virtual NGN account so your Lagos client pays in Naira — cuts that to near-zero.
+ 
+Worth a 15-min call to walk through the numbers for your specific volume?
+ 
+[Your Name]
+GTM, Skydo Technologies</div>
+        </div>
+      </div>
+ 
+      <div class="tab-panel" id="panel-kes">
+        <div class="oc-meta">
+          <div class="oc-chip">🎯 ICP: Indian IT firms with Nairobi clients</div>
+          <div class="oc-chip">📍 Hook: M-Pesa friction + KES volatility</div>
+          <div class="oc-chip">🔁 Touch 1 of 3</div>
+        </div>
+        <div class="email-box">
+          <button class="copy-btn" onclick="copyEmail('kes',event)">Copy</button>
+          <div class="ef"><span class="efk">Subject:</span><span class="efv">Your Kenya clients shouldn't need SWIFT to pay you</span></div>
+          <div class="ef"><span class="efk">To:</span><span class="efv">[Founder/CFO] @ [Indian IT Company]</span></div>
+          <hr class="ediv"/>
+          <div class="ebody" id="body-kes">Hi [Name],
+ 
+Saw that [Company] works with clients in Nairobi. Here's a friction point I'll bet your finance team complains about:
+ 
+Getting paid from Kenya typically involves your client doing a <span class="hlb">bank wire in KES → USD → INR</span>, losing 3–5% at each conversion, plus a 5–7 day wait. Your FIRA arrives 2–3 days after that.
+ 
+With Skydo, your Kenyan client sends <span class="hlg">KES directly to a Virtual account</span>. You receive INR T+1. Your FIRA is auto-generated in under 4 hours.
+ 
+No SWIFT. No correspondent fees. One flat ₹1,499.
+ 
+Happy to share exactly how this looks for a $3,000 invoice — takes 5 minutes.
+ 
+[Your Name]
+GTM, Skydo Technologies</div>
+        </div>
+      </div>
+ 
+      <div class="tab-panel" id="panel-egp">
+        <div class="oc-meta">
+          <div class="oc-chip">🎯 ICP: Indian fintech/IT firms with Cairo clients</div>
+          <div class="oc-chip">📍 Hook: EGP devaluation + CBE restrictions</div>
+          <div class="oc-chip">🔁 Touch 1 of 3</div>
+        </div>
+        <div class="email-box">
+          <button class="copy-btn" onclick="copyEmail('egp',event)">Copy</button>
+          <div class="ef"><span class="efk">Subject:</span><span class="efv">Getting paid from Egypt just got harder — here's a fix</span></div>
+          <div class="ef"><span class="efk">To:</span><span class="efv">[Founder/CFO] @ [Indian IT Company]</span></div>
+          <hr class="ediv"/>
+          <div class="ebody" id="body-egp">Hi [Name],
+ 
+If you have clients in Cairo, you've probably felt the EGP pain — the currency devalued <span class="hlb">~35% in 2024</span>, and CBE's capital controls mean your Egyptian clients face real friction wiring USD internationally.
+ 
+Most Indian exporters either absorb the FX loss or lose deals because payment is too painful for the client.
+ 
+Skydo's <span class="hlg">Virtual EGP Account</span> lets your Cairo client pay in Egyptian Pounds locally — we handle the conversion, compliance, and FIRA. You receive INR at interbank rate, flat ₹1,499 fee.
+ 
+If you're billing even <span class="hlg">$2,000/month</span> from Egypt, we can save you $150–$200 every month. Worth 10 minutes?
+ 
+[Your Name]
+GTM, Skydo Technologies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ROI CALCULATOR ══ -->
+<section id="roi-calc">
+  <div class="roi-orb roi-orb-1"></div>
+  <div class="roi-orb roi-orb-2"></div>
+  <div class="si" style="position:relative;z-index:1;">
+    <div class="roi-layout">
+
+      <!-- LEFT: Hero Text -->
+      <div class="roi-hero-left reveal reveal-left">
+        <div class="roi-eyebrow">
+          <span class="eyebrow-dot"></span>
+          The Closer · Interactive ROI Tool
+        </div>
+        <h2 class="roi-headline">
+          Stop the Leakage.<br/>
+          Save
+          <span class="roi-savings-amount" id="hero-annual-inr">₹2,14,297</span><br/>
+          Annually.
+        </h2>
+        <p class="roi-sub">
+          Move the slider to your monthly invoice volume. Watch your exact savings from switching to Skydo materialise in real-time — down to the last rupee.
+        </p>
+
+        <div class="roi-stat-pills">
+          <div class="rsp">
+            <div class="rsp-icon g">🏦</div>
+            <span>Legacy banks charge <strong>7% + $40</strong> per wire transfer</span>
+          </div>
+          <div class="rsp">
+            <div class="rsp-icon r">💸</div>
+            <span>PayPal Business takes <strong>8.8%</strong> off every invoice</span>
+          </div>
+          <div class="rsp">
+            <div class="rsp-icon g">⚡</div>
+            <span>Skydo: <strong>$19 / $29 / 0.3%</strong> tiered flat fee, T+1 settlement, auto-FIRA</span>
+          </div>
+        </div>
+
+        <div class="roi-trust-badges">
+          <div class="rtb">🛡️ RBI PA-CB Licensed</div>
+          <div class="rtb">📋 Auto-FIRA &lt;4 hrs</div>
+          <div class="rtb">✅ FEMA Compliant</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Calculator Card -->
+      <div class="roi-card reveal reveal-right">
+        <div class="roi-card-title">💰 Africa Corridor Calculator</div>
+        <div class="roi-card-sub">Enter your monthly invoice amount in USD to see your savings</div>
+
+        <!-- Exchange Rate Live Pill -->
+        <div class="roi-rate-pill">
+          <div class="roi-rate-pulse"></div>
+          Live Rate: $1 USD = ₹92.57 INR
+          <span style="background:rgba(0,200,83,.2);padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:800;letter-spacing:.06em;">LIVE</span>
+        </div>
+
+        <!-- Amount Input -->
+        <div class="roi-input-label">
+          Invoice Amount (per transfer)
+          <span id="freq-display" style="font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--blue);background:var(--blue-light);padding:2px 7px;border-radius:4px;">Monthly</span>
+        </div>
+        <div class="roi-amount-display">
+          <div class="roi-currency-badge">USD $</div>
+          <input type="number" class="roi-amount-input" id="roi-amount-input" value="2000" min="500" max="100000" step="100"/>
+        </div>
+
+        <!-- Slider -->
+        <div class="roi-slider-wrap">
+          <input type="range" class="roi-slider" id="roi-slider" min="500" max="100000" value="2000" step="100"/>
+        </div>
+        <div class="roi-slider-labels">
+          <span>$500</span>
+          <span>$25K</span>
+          <span>$50K</span>
+          <span>$75K</span>
+          <span>$100K</span>
+        </div>
+
+        <!-- Monthly / Annual toggle -->
+        <div class="roi-toggle-row">
+          <span class="roi-toggle-lbl">Show savings as:</span>
+          <div class="roi-toggle">
+            <button class="rtt active" id="toggle-monthly" onclick="setFreq('monthly')">Monthly</button>
+            <button class="rtt" id="toggle-annual" onclick="setFreq('annual')">Annual</button>
+          </div>
+        </div>
+
+        <hr class="roi-divider"/>
+
+        <!-- You'll Receive rows -->
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:.75rem;">YOU'LL RECEIVE</div>
+
+        <div class="roi-result-row winner" id="row-skydo">
+          <div class="rrr-left">
+            <div class="rrr-icon">⚡</div>
+            <div>
+              <div class="rrr-name">Skydo <span class="rrr-badge-win">BEST</span></div>
+              <div class="rrr-sub" id="skydo-tier-sub">Flat $19 · 22640-$2K · T+1 · Auto-FIRA</div>
+            </div>
+          </div>
+          <div class="rrr-right">
+            <div class="rrr-amount" id="skydo-inr">₹1,84,194</div>
+            <div class="rrr-loss" style="color:var(--green-mid);font-size:.65rem;">
+              <span id="skydo-fee-pill">✓ Fee: $19 only</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="roi-result-row loser" id="row-bank">
+          <div class="rrr-left">
+            <div class="rrr-icon">🏦</div>
+            <div>
+              <div class="rrr-name">Legacy Bank</div>
+              <div class="rrr-sub">SWIFT + FX spread · T+5 to T+9</div>
+            </div>
+          </div>
+          <div class="rrr-right">
+            <div class="rrr-amount" id="bank-inr">₹1,65,098</div>
+            <div class="rrr-loss">
+              <span id="bank-loss-pct">⬇ 7.0% + $40</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="roi-result-row loser" id="row-paypal">
+          <div class="rrr-left">
+            <div class="rrr-icon">💳</div>
+            <div>
+              <div class="rrr-name">PayPal / Others</div>
+              <div class="rrr-sub">Platform fee · T+3–5</div>
+            </div>
+          </div>
+          <div class="rrr-right">
+            <div class="rrr-amount" id="paypal-inr">₹1,68,621</div>
+            <div class="rrr-loss">
+              <span>⬇ 8.8% fee</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="roi-divider"/>
+
+        <!-- Bottom savings callout -->
+        <div class="roi-savings-callout">
+          <div class="rsc-left">
+            <div class="rsc-label" id="callout-label">Monthly Savings vs. Legacy Bank</div>
+            <div class="rsc-val" id="callout-val">₹17,835</div>
+            <div class="rsc-note" id="callout-note">≈ $193 saved per transfer · switch today</div>
+          </div>
+          <button class="rsc-cta" onclick="window.open('https://skydo.com','_blank')">
+            Start Saving →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="fi">
+    <div class="ftop">
+      <div>
+        <div class="fbrand">Africa Corridor Playbook</div>
+        <div class="ftagline">A PS-II GTM Associate case study built by Basva Murali Karthik @ BITS Pilani, Goa — submitted for Skydo Technologies, April 2026.</div>
+      </div>
+      <div>
+        <div class="fst">Data Sources</div>
+        <div class="fsi">📊 NASSCOM Strategic Review FY2024–25</div>
+        <div class="fsi">🏦 Reserve Bank of India — PA-CB Framework 2024</div>
+        <div class="fsi">💰 Skydo Technologies Series A — $10M Fundraise (2025)</div>
+        <div class="fsi">🌍 World Bank Remittance Prices Worldwide Q4 2024</div>
+        <div class="fsi">📈 CBK / CBE / CBN Annual Reports 2024</div>
+      </div>
+    </div>
+    <div class="fbot">
+      <div class="fauth">Built by <strong>Basva Murali Karthik</strong> · BITS Pilani, Goa · 2026</div>
+      <div class="fdisc">This playbook was independently researched and created as a GTM case study for the Skydo Technologies PS-II internship application. All financial estimates are approximations based on publicly available data.</div>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+/* ── SCROLL REVEAL ── */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObserver.observe(el));
+ 
+/* ── LEAD SCORER ── */
+const scores = { revenue: null, volume: null, pain: null, reach: null };
+const maxes  = { revenue: 35,   volume: 30,   pain: 20,   reach: 15  };
+ 
+document.querySelectorAll('.sgopt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const g = opt.dataset.group, v = parseInt(opt.dataset.val);
+    scores[g] = v;
+    document.querySelectorAll(`.sgopt[data-group="${g}"]`).forEach(o => o.classList.remove('sel'));
+    opt.classList.add('sel');
+    document.getElementById(`pts-${g}`).textContent = `${v} / ${maxes[g]} pts`;
+    updateScore();
+  });
+});
+ 
+function updateScore() {
+  if (Object.values(scores).some(v => v === null)) return;
+  const total = Object.values(scores).reduce((a, b) => a + b, 0);
+  const circ = 2 * Math.PI * 68;
+  document.getElementById('score-arc').style.strokeDashoffset = circ - (total / 100) * circ;
+ 
+  let color, tier, act;
+  if (total >= 80) { color = 'var(--green)'; tier = '🔥 Tier 1 — Engage Now'; act = 'Highest priority. Personalised outreach within 24 hrs. Use Revenue Recovery template immediately.'; }
+  else if (total >= 60) { color = 'var(--blue)'; tier = '✅ Tier 2 — High Priority'; act = 'Strong prospect. Trigger 3-touch email sequence this week.'; }
+  else if (total >= 40) { color = 'var(--amber)'; tier = '⏳ Tier 3 — Nurture'; act = 'Medium priority. Add to nurture sequence and revisit in 30 days.'; }
+  else { color = 'var(--ink4)'; tier = '⬇ Tier 4 — Deprioritise'; act = 'Insufficient Africa exposure or reachability. Park for Q2 review.'; }
+ 
+  document.getElementById('score-arc').style.stroke = color;
+  const numEl = document.getElementById('score-num');
+  numEl.style.color = color;
+  const prev = parseInt(numEl.textContent) || 0;
+  const t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / 600, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    numEl.textContent = Math.round(prev + (total - prev) * e);
+    if (p < 1) requestAnimationFrame(tick); else numEl.textContent = total;
+  })(t0);
+ 
+  document.getElementById('score-tier').textContent = tier;
+  document.getElementById('score-tier').style.color = color;
+  document.getElementById('score-act').textContent = act;
+ 
+  const bk = document.getElementById('score-bk'); bk.style.display = 'block';
+  ['revenue','volume','pain','reach'].forEach(g => {
+    const pct = (scores[g] / maxes[g]) * 100;
+    const bar = document.getElementById(`bar-${g}`);
+    bar.style.width = pct + '%'; bar.style.background = color;
+    document.getElementById(`bv-${g}`).textContent = scores[g];
+  });
+}
+ 
+/* ── TABS ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+ 
+/* ── COPY EMAILS ── */
+function copyEmail(id, e) {
+  const el = document.getElementById('body-' + id);
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    const btn = e.target;
+    btn.textContent = '✓ Copied'; btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = 'var(--ink)'; }, 2000);
+  });
+}
+
+/* ════════════════════════════════════
+   ROI CALCULATOR LOGIC
+════════════════════════════════════ */
+const RATE        = 92.57;   // $1 = ₹92.57 INR
+const BANK_PCT    = 0.07;    // 7% FX/SWIFT spread
+const BANK_FIXED  = 40;      // $40 correspondent fee
+const PAYPAL_PCT  = 0.088;   // 8.8% platform fee
+
+// Skydo official tiered pricing
+function skydoFee(amount) {
+  if (amount <= 2000)  return 19;
+  if (amount <= 10000) return 29;
+  return amount * 0.003;
+}
+function skydoTierLabel(amount) {
+  if (amount <= 2000)  return 'Flat $19 \u00b7 \u22640-$2K \u00b7 T+1 \u00b7 Auto-FIRA';
+  if (amount <= 10000) return 'Flat $29 \u00b7 $2K\u2013$10K \u00b7 T+1 \u00b7 Auto-FIRA';
+  const pct = (amount * 0.003).toFixed(0);
+  return '0.3% = $' + pct + ' \u00b7 >$10K \u00b7 T+1 \u00b7 Auto-FIRA';
+}
+
+let currentFreq = 'monthly';
+const freqMultiplier = () => currentFreq === 'annual' ? 12 : 1;
+
+function calcROI(amount) {
+  const bankCost   = (amount * BANK_PCT) + BANK_FIXED;
+  const skydoCost  = skydoFee(amount);
+  const paypalCost = amount * PAYPAL_PCT;
+
+  const skydoNet   = amount - skydoCost;
+  const bankNet    = amount - bankCost;
+  const paypalNet  = amount - paypalCost;
+
+  const monthlySavingsVsBank = bankCost - skydoCost;
+  const mult = freqMultiplier();
+
+  return {
+    skydoINR:         skydoNet  * RATE * mult,
+    bankINR:          bankNet   * RATE * mult,
+    paypalINR:        paypalNet * RATE * mult,
+    savingsVsBank:    monthlySavingsVsBank * RATE * mult,
+    savingsVsBankUSD: monthlySavingsVsBank * mult,
+    annualSavingsINR: monthlySavingsVsBank * RATE * 12,
+    skydoCost,
+  };
+}
+
+function fmtINR(val) {
+  // Indian numbering: lakhs/crores
+  const abs = Math.abs(Math.round(val));
+  const sign = val < 0 ? '-' : '';
+  const s = abs.toString();
+  if (s.length <= 3) return sign + '₹' + s;
+  const last3 = s.slice(-3);
+  const rest   = s.slice(0, -3);
+  const formatted = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + ',' + last3;
+  return sign + '₹' + formatted;
+}
+
+function fmtUSD(val) {
+  return '$' + Math.round(val).toLocaleString('en-US');
+}
+
+// Animated counter for a DOM element
+const runningCounters = {};
+function animateCounter(el, targetRaw, formatter) {
+  const id = el.id;
+  if (runningCounters[id]) cancelAnimationFrame(runningCounters[id]);
+  const raw = parseFloat(el.dataset.raw || '0');
+  const start = raw;
+  const end   = targetRaw;
+  const t0    = performance.now();
+  const dur   = 420;
+  function tick(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const cur = start + (end - start) * ease;
+    el.textContent = formatter(cur);
+    el.dataset.raw = cur;
+    if (p < 1) { runningCounters[id] = requestAnimationFrame(tick); }
+    else { el.textContent = formatter(end); el.dataset.raw = end; }
+  }
+  runningCounters[id] = requestAnimationFrame(tick);
+}
+
+function updateSliderBg(slider) {
+  const min = +slider.min, max = +slider.max, val = +slider.value;
+  const pct = ((val - min) / (max - min)) * 100;
+  slider.style.background = `linear-gradient(to right, var(--green) ${pct}%, var(--border) ${pct}%)`;
+}
+
+function updateROI() {
+  const amount = Math.max(500, Math.min(100000, +document.getElementById('roi-amount-input').value || 2000));
+  const data   = calcROI(amount);
+  const mult   = freqMultiplier();
+  const isAnn  = currentFreq === 'annual';
+
+  // Animate card result rows
+  animateCounter(document.getElementById('skydo-inr'),  data.skydoINR,  fmtINR);
+  animateCounter(document.getElementById('bank-inr'),   data.bankINR,   fmtINR);
+  animateCounter(document.getElementById('paypal-inr'), data.paypalINR, fmtINR);
+  animateCounter(document.getElementById('callout-val'), data.savingsVsBank, fmtINR);
+
+  // Update Skydo tier sub-label dynamically
+  document.getElementById('skydo-tier-sub').textContent = skydoTierLabel(amount);
+  const feePill = document.getElementById('skydo-fee-pill');
+  if (feePill) feePill.textContent = amount <= 2000 ? '2713 Fee: $19 only' : amount <= 10000 ? '2713 Fee: $29 only' : '2713 Fee: 0.3% = $' + Math.round(data.skydoCost);
+
+  // Callout label & note
+  document.getElementById('callout-label').textContent =
+    (isAnn ? 'Annual' : 'Monthly') + ' Savings vs. Legacy Bank';
+  document.getElementById('callout-note').textContent =
+    `≈ ${fmtUSD(data.savingsVsBankUSD / (isAnn ? 12 : 1))} saved per transfer · switch today`;
+
+  // Hero headline big number (always annual for impact)
+  const heroEl = document.getElementById('hero-annual-inr');
+  const annSavings = calcROI(amount).annualSavingsINR;
+  animateCounter(heroEl, annSavings, fmtINR);
+  heroEl.classList.remove('animating');
+  void heroEl.offsetWidth; // reflow
+  heroEl.classList.add('animating');
+}
+
+// Slider ↔ input sync
+const slider = document.getElementById('roi-slider');
+const input  = document.getElementById('roi-amount-input');
+
+slider.addEventListener('input', () => {
+  input.value = slider.value;
+  updateSliderBg(slider);
+  updateROI();
+});
+
+input.addEventListener('input', () => {
+  const v = Math.max(500, Math.min(100000, +input.value || 500));
+  slider.value = v;
+  updateSliderBg(slider);
+  updateROI();
+});
+input.addEventListener('blur', () => {
+  if (!input.value || +input.value < 500)  input.value = 500;
+  if (+input.value > 100000) input.value = 100000;
+  slider.value = input.value;
+  updateSliderBg(slider);
+  updateROI();
+});
+
+function setFreq(freq) {
+  currentFreq = freq;
+  document.getElementById('toggle-monthly').classList.toggle('active', freq === 'monthly');
+  document.getElementById('toggle-annual').classList.toggle('active', freq === 'annual');
+  document.getElementById('freq-display').textContent = freq === 'annual' ? 'Annual' : 'Monthly';
+  updateROI();
+}
+
+// Init
+updateSliderBg(slider);
+updateROI();
+</script>
+</body>
+</html>
